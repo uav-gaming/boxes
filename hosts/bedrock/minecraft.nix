@@ -22,6 +22,13 @@ let
     };
   };
 
+  modpack = pkgs.runCommand "fabric-mods" {} ''
+    mkdir $out
+    ${concatStringsSep "\n" (lib.mapAttrsToList (name: mod: ''
+      ln -sf ${mod} $out/${name}.jar
+    '') mods)}
+  '';
+
   # Ops
   ops = {
 ***REMOVED***
@@ -68,11 +75,10 @@ in {
       dataDir=${config.services.minecraft-server.dataDir}
 
       # Inject mods
-      mkdir -p $dataDir/mods
-      ${concatStringsSep "\n" (lib.mapAttrsToList (name: mod: ''
-        echo "Installing mod ${name}..."
-        ln -sf ${mod} $dataDir/mods/${name}.jar
-      '') mods)}
+      if [[ -d $dataDir/mods && ! -L $dataDir/mods ]]; then
+        mv $dataDir/mods{,.old}
+      fi
+      ln -Tsf ${modpack} $dataDir/mods
 
       # Inject ops.json
       ln -sf ${opsJson} $dataDir/ops.json
