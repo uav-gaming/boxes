@@ -1,0 +1,47 @@
+name: Deploy
+on:
+  push:
+    branches:
+      - main
+jobs:
+  deploy:
+    strategy:
+      matrix:
+        os:
+          - ubuntu-latest
+        nix:
+          - name: 2.9.1
+            url: https://releases.nixos.org/nix/nix-2.9.1/install
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v2.3.5
+      - uses: cachix/install-nix-action@v17
+        with:
+          install_url: ${{ matrix.nix.url }}
+          extra_nix_config: |
+            experimental-features = nix-command flakes
+
+      - name: Install git-crypt
+        run: sudo apt install -y git-crypt
+
+      - name: Decrypt credentials
+        run: |
+          echo -n $GIT_CRYPT_KEY | base64 -d > git-crypt.key
+          git crypt unlock git-crypt.key
+        env:
+          GIT_CRYPT_KEY: ${{ secrets.GIT_CRYPT_KEY }}
+
+      - name: Install SSH key
+        uses: shimataro/ssh-key-action@v2
+        with:
+          key: ${{ secrets.SSH_KEY }}
+          known_hosts: ${{ secrets.KNOWN_HOSTS }}
+
+      - name: Connect to Tailscale
+        uses: tailscale/github-action@v1
+          with:
+            authkey: ${{ secrets.TAILSCALE_AUTHKEY }}
+
+      - name: Deploy nodes
+        run: |
+          nix develop --command -- colmena apply
