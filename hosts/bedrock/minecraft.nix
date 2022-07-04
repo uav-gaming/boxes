@@ -9,9 +9,17 @@ let
 
   # Bedrock/Pocket (GeyserMC)
   bedrockPort = 19132;
-  geyser = pkgs.fetchurl {
-    url = "https://ci.opencollab.dev/job/GeyserMC/job/Geyser/job/master/1140/artifact/bootstrap/standalone/target/Geyser.jar";
-    sha256 = "sha256-CmGt8JCNFj8ofTsF87r3gQI8yezAeMipUAn5zz14buY=";
+
+  # Fabric mods
+  mods = {
+    fabric-api = pkgs.fetchurl {
+      url = "https://github.com/FabricMC/fabric/releases/download/0.57.0%2B1.19/fabric-api-0.57.0+1.19.jar";
+      sha256 = "sha256-kqEYvI55QvK8+6NJZSoF0jqiWWwTMfUpB0SV8c5PZIM=";
+    };
+    geyser-fabric = pkgs.fetchurl {
+      url = "https://ci.opencollab.dev/job/GeyserMC/job/Geyser-Fabric/job/java-1.18/196/artifact/build/libs/Geyser-Fabric.jar";
+      sha256 = "sha256-YlRkxk7+mDasaKAQOWyfxDf3YXZOTDIkMzIAqy0Y9W0=";
+    };
   };
 
   # Ops
@@ -56,37 +64,23 @@ in {
     # Don't automatically restart - very disruptive
     restartIfChanged = false;
 
-    # Manage ops.json with nix
     preStart = lib.mkAfter ''
-      ln -sf ${opsJson} ${config.services.minecraft-server.dataDir}/ops.json
+      dataDir=${config.services.minecraft-server.dataDir}
+
+      # Inject mods
+      mkdir -p $dataDir/mods
+      ${concatStringsSep "\n" (lib.mapAttrsToList (name: mod: ''
+        echo "Installing mod ${name}..."
+        ln -sf ${mod} $dataDir/mods/${name}.jar
+      '') mods)}
+
+      # Inject ops.json
+      ln -sf ${opsJson} $dataDir/ops.json
+
+      # Inject Geyser config
+      mkdir -p $dataDir/config/Geyser-Fabric
+      ln -sf ${./geyser.yml} $dataDir/config/Geyser-Fabric/config.yml
     '';
-  };
-
-  systemd.services.geyser = {
-    wantedBy = [ "multi-user.target" ];
-    requires = [ "minecraft-server.service" ];
-    after = [ "minecraft-server.service" ];
-
-    path = with pkgs; [ coreutils jre ];
-    script = ''
-      ln -sf ${./geyser.yml} /var/lib/geyser/config.yml
-      exec java -Xms1024M -jar ${geyser}
-    '';
-
-    serviceConfig = {
-      StateDirectory = "geyser";
-      WorkingDirectory = "/var/lib/geyser";
-      DynamicUser = "yes";
-
-      ProtectSystem = "full";
-      ProtectHome = true;
-      ProtectHostname = true;
-      ProtectKernelLogs = true;
-      ProtectKernelModules = true;
-      RestrictNamespaces = true;
-      RestrictRealtime = true;
-      LockPersonality = true;
-    };
   };
 
   deployment.keys."rcon.key" = {
