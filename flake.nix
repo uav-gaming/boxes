@@ -3,19 +3,23 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     utils.url = "github:numtide/flake-utils";
 
+    nix-minecraft.url = "github:Infinidoge/nix-minecraft";
+
     flake-compat = {
       url = "github:edolstra/flake-compat";
       flake = false;
     };
   };
 
-  outputs = { self, nixpkgs, utils, ... }: {
+  outputs = { self, nixpkgs, utils, nix-minecraft, ... }: {
     colmena = {
       meta = {
         description = "UAV Gaming";
         nixpkgs = import nixpkgs {
           system = "x86_64-linux";
-          overlays = [];
+          overlays = [
+            nix-minecraft.overlay
+          ];
         };
       };
 
