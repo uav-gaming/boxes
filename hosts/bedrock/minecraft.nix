@@ -56,7 +56,7 @@ in {
       white-list = false; # access enforced by tailscale
       enable-rcon = true;
       max-players = 69420;
-      "rcon.password" = builtins.readFile ./rcon.key;
+      "rcon.password" = "%RANDOM_PASSWORD%";
     };
   };
 
@@ -80,17 +80,20 @@ in {
       # Inject Geyser config
       mkdir -p $dataDir/config/Geyser-Fabric
       ln -sf ${./geyser.yml} $dataDir/config/Geyser-Fabric/config.yml
-    '';
-  };
 
-  deployment.keys."rcon.key" = {
-    destDir = "/var/lib/secrets";
-    keyFile = ./rcon.key;
+      # Inject random rcon password
+      rcon_pass=$(${pkgs.openssl}/bin/openssl rand -hex 32)
+      touch $dataDir/rcon.pass
+      chmod 600 $dataDir/rcon.pass
+      echo $rcon_pass >$dataDir/rcon.pass
+      sed -i "s|%RANDOM_PASSWORD%|$rcon_pass|g" $dataDir/server.properties
+    '';
   };
 
   environment.systemPackages = with pkgs; [
     (pkgs.writeShellScriptBin "mcrcon" ''
-      export MCRCON_PASS=$(cat /var/lib/secrets/rcon.key)
+      set -euo pipefail
+      export MCRCON_PASS=$(cat ${config.services.minecraft-server.dataDir}/rcon.pass)
       exec ${pkgs.mcrcon}/bin/mcrcon "$@"
     '')
   ];
