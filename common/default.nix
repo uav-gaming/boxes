@@ -24,6 +24,7 @@ in {
     htop
     inetutils
     tcpdump
+    tmux
     vim
     wget
   ];
