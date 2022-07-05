@@ -12,10 +12,6 @@ let
 
   # Fabric mods
   mods = {
-    ae2 = pkgs.fetchurl {
-      url = "https://github.com/AppliedEnergistics/Applied-Energistics-2/releases/download/fabric%2Fv12.0.0-alpha/appliedenergistics2-12.0.0-alpha.jar";
-      sha256 = "sha256-KcpxMId1G8j2GQCKuHuyHjpk/O+HYQYC8ILv/fjybvc=";
-    };
     fabric-api = pkgs.fetchurl {
       url = "https://github.com/FabricMC/fabric/releases/download/0.57.0%2B1.19/fabric-api-0.57.0+1.19.jar";
       sha256 = "sha256-kqEYvI55QvK8+6NJZSoF0jqiWWwTMfUpB0SV8c5PZIM=";
