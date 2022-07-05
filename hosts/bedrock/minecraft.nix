@@ -24,6 +24,10 @@ let
       url = "https://ci.opencollab.dev/job/GeyserMC/job/Geyser-Fabric/job/java-1.18/196/artifact/build/libs/Geyser-Fabric.jar";
       sha256 = "sha256-YlRkxk7+mDasaKAQOWyfxDf3YXZOTDIkMzIAqy0Y9W0=";
     };
+    journeymap = pkgs.fetchurl {
+      url = "https://cdn.modrinth.com/data/lfHFW1mp/versions/1.19-5.8.5rc2-fabric/journeymap-1.19-5.8.5rc2-fabric.jar";
+      sha256 = "sha256-Fwed1BDIiB9O4L4iCyhDrXThGQyLbf7THakEiYasgHo=";
+    };
   };
 
   modpack = pkgs.runCommand "fabric-mods" {} ''
