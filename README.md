@@ -6,9 +6,12 @@ Download [Tailscale](https://tailscale.com), sign in with your favorite method, 
 
 ## Minecraft
 
-- Version: Fabric 1.19 with [GeyserMC](https://geysermc.org)
-- Server Address: 100.70.137.13
-    - Use either Vanilla 1.19 or a recent Bedrock/Pocket Edition to connect
+- Version: Fabric 1.19
+- Server Address: `100.70.137.13`
+- Required Mods:
+    - [CC: Restitched](https://modrinth.com/mod/cc-restitched)
+- Recommended Mods:
+    - [JourneyMap](https://modrinth.com/mod/journeymap)
 
 ### Operations
 
