@@ -73,15 +73,15 @@ in {
     jvmOpts = "-Xms1G -Xmx8G";
 
     serverProperties = {
-      motd = "UAV Minecraft";
-      serverPort = javaPort;
       difficulty = "normal";
-      gamemode = "survival";
-      white-list = false; # access enforced by tailscale
       enable-rcon = true;
+      gamemode = "survival";
       max-players = 69420;
-      spawn-protection = 0; # disable spawn protection
+      motd = "UAV Minecraft";
       "rcon.password" = "%RANDOM_PASSWORD%";
+      serverPort = javaPort;
+      spawn-protection = 0; # disable spawn protection
+      white-list = false; # access enforced by tailscale
     };
   };
 
