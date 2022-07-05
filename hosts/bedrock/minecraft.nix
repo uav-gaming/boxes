@@ -15,23 +15,31 @@ let
 
   # Fabric mods
   mods = {
+    # Client-side mods
     cc-restitched = pkgs.fetchurl {
       url = "https://github.com/cc-tweaked/cc-restitched/releases/download/v1.19-1.101.0-ccr/cc-restitched-1.101.0.jar";
       sha256 = "sha256-7g5xfUjwOz+U8cW6lcVfPHGjnEWa3n+6t9l6Og5I4Ro=";
-    };
-    fabric-api = pkgs.fetchurl {
-      url = "https://github.com/FabricMC/fabric/releases/download/0.57.0%2B1.19/fabric-api-0.57.0+1.19.jar";
-      sha256 = "sha256-kqEYvI55QvK8+6NJZSoF0jqiWWwTMfUpB0SV8c5PZIM=";
-    };
-    geyser-fabric = pkgs.fetchurl {
-      url = "https://ci.opencollab.dev/job/GeyserMC/job/Geyser-Fabric/job/java-1.18/196/artifact/build/libs/Geyser-Fabric.jar";
-      sha256 = "sha256-YlRkxk7+mDasaKAQOWyfxDf3YXZOTDIkMzIAqy0Y9W0=";
     };
     journeymap = pkgs.fetchurl {
       url = "https://cdn.modrinth.com/data/lfHFW1mp/versions/1.19-5.8.5rc2-fabric/journeymap-1.19-5.8.5rc2-fabric.jar";
       sha256 = "sha256-Fwed1BDIiB9O4L4iCyhDrXThGQyLbf7THakEiYasgHo=";
     };
-    dynmap = ./Dynmap-3.4-beta-4-fabric-1.19.jar;
+
+    # Server-only mods
+    dynmap = pkgs.fetchurl {
+      url = "https://dynmap.us/releases/Dynmap-3.4-beta-4-fabric-1.19.jar";
+      sha256 = "sha256-gy0t2wQp5LEKGV8aoIwo7dzOYQwj5suko0UPGmF5VrY=";
+    };
+    geyser-fabric = pkgs.fetchurl {
+      url = "https://ci.opencollab.dev/job/GeyserMC/job/Geyser-Fabric/job/java-1.18/196/artifact/build/libs/Geyser-Fabric.jar";
+      sha256 = "sha256-YlRkxk7+mDasaKAQOWyfxDf3YXZOTDIkMzIAqy0Y9W0=";
+    };
+
+    # Fabric API
+    fabric-api = pkgs.fetchurl {
+      url = "https://github.com/FabricMC/fabric/releases/download/0.57.0%2B1.19/fabric-api-0.57.0+1.19.jar";
+      sha256 = "sha256-kqEYvI55QvK8+6NJZSoF0jqiWWwTMfUpB0SV8c5PZIM=";
+    };
   };
 
   modpack = pkgs.runCommand "fabric-mods" {} ''
