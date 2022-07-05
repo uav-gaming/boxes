@@ -47,8 +47,9 @@
           '';
 
           virtualisation = {
+            cores = 4;
             diskSize = 2048;
-            memorySize = 2048;
+            memorySize = 4096;
             forwardPorts = [
               {
                 from = "host";
