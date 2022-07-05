@@ -57,6 +57,12 @@
                 host.port = 25565;
                 guest.port = 25565;
               }
+              {
+                from = "host";
+                proto = "tcp";
+                host.port = 8123;
+                guest.port = 8123;
+              }
             ];
           };
         })

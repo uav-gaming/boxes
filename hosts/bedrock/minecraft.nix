@@ -10,6 +10,9 @@ let
   # Bedrock/Pocket (GeyserMC)
   bedrockPort = 19132;
 
+  # Dynmap
+  dynmapPort = 8123;
+
   # Fabric mods
   mods = {
     cc-restitched = pkgs.fetchurl {
@@ -28,6 +31,7 @@ let
       url = "https://cdn.modrinth.com/data/lfHFW1mp/versions/1.19-5.8.5rc2-fabric/journeymap-1.19-5.8.5rc2-fabric.jar";
       sha256 = "sha256-Fwed1BDIiB9O4L4iCyhDrXThGQyLbf7THakEiYasgHo=";
     };
+    dynmap = ./Dynmap-3.4-beta-4-fabric-1.19.jar;
   };
 
   modpack = pkgs.runCommand "fabric-mods" {} ''
@@ -51,7 +55,7 @@ let
   in pkgs.writeText "ops.json" (toJSON (lib.mapAttrsToList makeOp ops));
 in {
   networking.firewall = {
-    allowedTCPPorts = [ javaPort ];
+    allowedTCPPorts = [ javaPort dynmapPort ];
     allowedUDPPorts = [ bedrockPort ];
   };
 
@@ -94,6 +98,10 @@ in {
       # Inject Geyser config
       mkdir -p $dataDir/config/Geyser-Fabric
       ln -sf ${./geyser.yml} $dataDir/config/Geyser-Fabric/config.yml
+
+      # Inject Dynmap config
+      mkdir -p $dataDir/dynmap
+      ln -sf ${./dynmap-configuration.txt} $dataDir/dynmap/configuration.txt
 
       # Inject random rcon password
       rcon_pass=$(${pkgs.openssl}/bin/openssl rand -hex 32)
