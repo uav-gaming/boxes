@@ -101,7 +101,7 @@ in {
 
       # Inject Dynmap config
       mkdir -p $dataDir/dynmap
-      ln -sf ${./dynmap-configuration.txt} $dataDir/dynmap/configuration.txt
+      ln -sf ${./dynmap-configuration.yml} $dataDir/dynmap/configuration.txt
 
       # Inject random rcon password
       rcon_pass=$(${pkgs.openssl}/bin/openssl rand -hex 32)
