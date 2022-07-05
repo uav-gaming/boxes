@@ -1,0 +1,70 @@
+# All operators have full permissions to all functions.
+# All users receive the permissions under the 'defaultuser' section
+# Specific users can be given more permissions by defining a section with their name containing their permisssions
+#   All permissions correspond to those documented here (https://github.com/webbukkit/dynmap/wiki/Permissions), but
+#  do NOT have the 'dynmap.' prefix when used here (e.g. 'dynmap.fullrender' permission is just 'fullrender' here).
+#
+defaultuser:
+  - render
+  - show.self
+  - show.others
+  - hide.self
+  - hide.others
+  - fullrender
+  - radiusrender
+  - updaterender
+  - cancelrender
+  - pause
+  - reload
+  - stats
+  - resetstats
+  - sendtoweb
+  - purgequeue
+  - ids-for-ip
+  - ips-for-id
+  - add-id-for-ip
+  - del-id-for-ip
+  - marker.add
+  - marker.movehere
+  - marker.update
+  - marker.delete
+  - marker.list
+  - marker.icons
+  - marker.addset
+  - marker.updateset
+  - marker.deleteset
+  - marker.listsets
+  - marker.addicon
+  - marker.updateicon
+  - marker.deleteicon
+  - marker.addarea
+  - marker.updatearea
+  - marker.deletearea
+  - marker.listareas
+  - marker.addline
+  - marker.updateline
+  - marker.deleteline
+  - marker.listlines
+  - marker.sign
+  - dmap.worldlist
+  - dmap.worldset
+  - dmap.worldreset
+  - dmap.mapdelete
+  - dmap.mapset
+  - dmap.mapadd
+  - dmap.perspectivelist
+  - dmap.shaderlist
+  - dmap.lightinglist
+  - webregister
+  - webregister.other
+  - webchat
+  - playermarkers.showall
+# - world.<world-name>
+# - map.<world-name>.<map-name>
+
+#playername1:
+#  - fullrender
+#  - cancelrender
+#  - radiusrender
+
+
