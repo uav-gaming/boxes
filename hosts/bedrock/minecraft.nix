@@ -70,6 +70,8 @@ in {
     eula = true;
     declarative = true;
 
+    jvmOpts = "-Xms1G -Xmx8G";
+
     serverProperties = {
       motd = "UAV Minecraft";
       serverPort = javaPort;
