@@ -16,6 +16,10 @@ let
   # Fabric mods
   mods = {
     # Client-side mods
+    ae2 = pkgs.fetchurl {
+      url = "https://github.com/AppliedEnergistics/Applied-Energistics-2/releases/download/fabric%2Fv12.0.1-alpha/appliedenergistics2-12.0.1-alpha.jar";
+      sha256 = "sha256-jaQ3S2Ya2ek++dGvwu/mDURzGnHfOt31UOFrKW9q2GQ=";
+    };
     cc-restitched = pkgs.fetchurl {
       url = "https://github.com/cc-tweaked/cc-restitched/releases/download/v1.19-1.101.0-ccr/cc-restitched-1.101.0.jar";
       sha256 = "sha256-7g5xfUjwOz+U8cW6lcVfPHGjnEWa3n+6t9l6Og5I4Ro=";
