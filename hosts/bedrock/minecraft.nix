@@ -33,7 +33,6 @@ let
   ops = {
 ***REMOVED***
 ***REMOVED***
-***REMOVED***
   };
 
   opsJson = let
@@ -63,6 +62,7 @@ in {
       white-list = false; # access enforced by tailscale
       enable-rcon = true;
       max-players = 69420;
+      spawn-protection = 0; # disable spawn protection
       "rcon.password" = "%RANDOM_PASSWORD%";
     };
   };
