@@ -78,6 +78,7 @@ in {
       gamemode = "survival";
       max-players = 69420;
       motd = "UAV Minecraft";
+      pvp = false;
       "rcon.password" = "%RANDOM_PASSWORD%";
       serverPort = javaPort;
       spawn-protection = 0; # disable spawn protection
