@@ -1,11 +1,12 @@
 # Common configurations
 
-{ lib, pkgs, ... }:
+{ lib, pkgs, inputs, ... }:
 let
   nixpkgs = if lib.isStorePath pkgs.path then pkgs.path else lib.cleanSource pkgs.path;
 in {
   imports = [
     ./ssh-keys
+    inputs.impermanence.nixosModule
   ];
 
   nixpkgs.config.allowUnfree = true;

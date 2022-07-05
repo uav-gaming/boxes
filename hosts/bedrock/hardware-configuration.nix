@@ -11,8 +11,23 @@
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/381e1ec8-6ee7-4d71-a84d-a3b48fab5062";
-      fsType = "ext4";
+    { device = "system/ephemeral";
+      fsType = "zfs";
+    };
+
+  fileSystems."/nix" =
+    { device = "system/nix";
+      fsType = "zfs";
+    };
+
+  fileSystems."/persist" =
+    { device = "system/data/persist";
+      fsType = "zfs";
+    };
+
+  fileSystems."/var/lib/minecraft" =
+    { device = "system/data/minecraft";
+      fsType = "zfs";
     };
 
   fileSystems."/boot" =

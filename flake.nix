@@ -3,6 +3,7 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     utils.url = "github:numtide/flake-utils";
 
+    impermanence.url = "github:nix-community/impermanence";
     nix-minecraft.url = "github:Infinidoge/nix-minecraft";
     nixos-shell.url = "github:Mic92/nixos-shell";
 
@@ -12,7 +13,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, utils, nix-minecraft, nixos-shell, ... }: {
+  outputs = { self, nixpkgs, utils, nix-minecraft, nixos-shell, ... } @ inputs: {
     colmena = {
       meta = {
         description = "UAV Gaming";
@@ -21,6 +22,9 @@
           overlays = [
             nix-minecraft.overlay
           ];
+        };
+        specialArgs = {
+          inherit inputs;
         };
       };
 
@@ -32,6 +36,9 @@
     # Launch VM with ./launch-vm.sh
     nixosConfigurations.bedrock-mini = nixpkgs.lib.makeOverridable nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
+      specialArgs = {
+        inherit inputs;
+      };
       modules = [
         ./common
         ./hosts/bedrock/minecraft.nix

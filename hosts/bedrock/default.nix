@@ -6,14 +6,17 @@
   imports = [
     ./hardware-configuration.nix
     ./minecraft.nix
+    ./persistence.nix
   ];
 
   deployment.targetHost = "100.70.137.13";
 
   networking.hostName = "bedrock";
+  networking.hostId = "abcd1234";
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.zfs.devNodes = "/dev/disk/by-path";
 
   systemd.network.networks.enp1s0 = {
     name = "enp1s0";
