@@ -30,10 +30,6 @@ let
       url = "https://dynmap.us/releases/Dynmap-3.4-beta-4-fabric-1.19.jar";
       sha256 = "sha256-gy0t2wQp5LEKGV8aoIwo7dzOYQwj5suko0UPGmF5VrY=";
     };
-    geyser-fabric = pkgs.fetchurl {
-      url = "https://ci.opencollab.dev/job/GeyserMC/job/Geyser-Fabric/job/java-1.18/196/artifact/build/libs/Geyser-Fabric.jar";
-      sha256 = "sha256-YlRkxk7+mDasaKAQOWyfxDf3YXZOTDIkMzIAqy0Y9W0=";
-    };
 
     # Fabric API
     fabric-api = pkgs.fetchurl {
@@ -102,10 +98,6 @@ in {
 
       # Inject ops.json
       ln -sf ${opsJson} $dataDir/ops.json
-
-      # Inject Geyser config
-      mkdir -p $dataDir/config/Geyser-Fabric
-      ln -sf ${./geyser.yml} $dataDir/config/Geyser-Fabric/config.yml
 
       # Inject Dynmap config
       mkdir -p $dataDir/dynmap
