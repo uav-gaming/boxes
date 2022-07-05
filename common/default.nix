@@ -20,8 +20,11 @@ in {
   time.timeZone = "America/Los_Angeles";
 
   environment.systemPackages = with pkgs; [
-    vim
+    git
+    htop
+    inetutils
     tcpdump
+    vim
     wget
   ];
 
