@@ -311,23 +311,12 @@ compass-mode: newnorth
 # Triggers for automatic updates : blockupdate-with-id is debug for breaking down updates by ID:meta
 # To disable, set just 'none' and comment/delete the rest
 render-triggers:
-  #- playermove
-  #- playerjoin
-  - blockplaced
-  - blockbreak
-  - leavesdecay
-  - blockburn
-  - chunkgenerated
-  - blockformed
-  - blockfaded
-  - blockspread
-  - pistonmoved
-  - explosion
-  #- blockfromto
-  #- blockphysics
-  - structuregrow
-  - blockgrow
-  #- blockredstone
+  - blockupdate
+  #- blockupdate-with-id
+  #- lightingupdate
+  - chunkpopulate
+  - chunkgenerate
+  #- none
 
 # Title for the web page - if not specified, defaults to the server's name (unless it is the default of 'Unknown Server')
 #webpage-title: "My Awesome Server Map"
