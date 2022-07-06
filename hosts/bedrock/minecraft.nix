@@ -50,10 +50,8 @@ let
   '';
 
   # Ops
-  ops = {
-***REMOVED***
-***REMOVED***
-  };
+  # Attr set[playname = uuid];
+  ops = import ./minecraft-ops.key.nix;
 
   opsJson = let
     makeOp = name: uuid: {
