@@ -10,6 +10,7 @@ Download [Tailscale](https://tailscale.com), sign in with your favorite method, 
 - Server Address: `100.70.137.13`
 - Required Mods:
     - [CC: Restitched](https://modrinth.com/mod/cc-restitched)
+    - [Applied Energistics 2](https://modrinth.com/mod/ae2)
 - Recommended Mods:
     - [JourneyMap](https://modrinth.com/mod/journeymap)
 
