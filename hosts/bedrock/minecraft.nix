@@ -84,6 +84,7 @@ in {
       "rcon.password" = "%RANDOM_PASSWORD%";
       serverPort = javaPort;
       spawn-protection = 0; # disable spawn protection
+      tick-distance = 12; # [4, 12]. Lower this to avoid lag.
       white-list = false; # access enforced by tailscale
     };
   };
