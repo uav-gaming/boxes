@@ -16,17 +16,25 @@ let
   # Fabric mods
   mods = {
     # Client-side mods
+    # Item storage and transportation
     ae2 = pkgs.fetchurl {
       url = "https://github.com/AppliedEnergistics/Applied-Energistics-2/releases/download/fabric%2Fv12.0.1-alpha/appliedenergistics2-12.0.1-alpha.jar";
       sha256 = "sha256-jaQ3S2Ya2ek++dGvwu/mDURzGnHfOt31UOFrKW9q2GQ=";
     };
+    # Programmable robots
     cc-restitched = pkgs.fetchurl {
       url = "https://github.com/cc-tweaked/cc-restitched/releases/download/v1.19-1.101.0-ccr/cc-restitched-1.101.0.jar";
       sha256 = "sha256-7g5xfUjwOz+U8cW6lcVfPHGjnEWa3n+6t9l6Og5I4Ro=";
     };
+    # In-game map
     journeymap = pkgs.fetchurl {
       url = "https://cdn.modrinth.com/data/lfHFW1mp/versions/1.19-5.8.5rc2-fabric/journeymap-1.19-5.8.5rc2-fabric.jar";
       sha256 = "sha256-Fwed1BDIiB9O4L4iCyhDrXThGQyLbf7THakEiYasgHo=";
+    };
+    # Recipes
+    rei = pkgs.fetchurl {
+      url = "https://cdn.modrinth.com/data/nfn13YXA/versions/9.1.511+fabric/RoughlyEnoughItems-9.1.511.jar";
+      sha256 = "sha256-fKu0D5xdCCzYsqU61QZ5BPqw5ctID47eMOOXr1Y2mXg=";
     };
 
     # Server-only mods
@@ -35,10 +43,21 @@ let
       sha256 = "sha256-gy0t2wQp5LEKGV8aoIwo7dzOYQwj5suko0UPGmF5VrY=";
     };
 
-    # Fabric API
+    # APIs
+    # Depended by all mods.
     fabric-api = pkgs.fetchurl {
       url = "https://github.com/FabricMC/fabric/releases/download/0.57.0%2B1.19/fabric-api-0.57.0+1.19.jar";
       sha256 = "sha256-kqEYvI55QvK8+6NJZSoF0jqiWWwTMfUpB0SV8c5PZIM=";
+    };
+    # Depended by REI.
+    cloth-config = pkgs.fetchurl {
+      url = "https://cdn.modrinth.com/data/9s6osm5g/versions/7.0.73+fabric/cloth-config-7.0.73-fabric.jar";
+      sha256 = "sha256-zUPlyMYWXOb01mRIpCGoUvvR0g2M1WzghtamMVwlZJs=";
+    };
+    # Depended by REI.
+    architectury = pkgs.fetchurl {
+      url = "https://cdn.modrinth.com/data/lhGA9TYQ/versions/5.9.30+fabric/architectury-5.9.30-fabric.jar";
+      sha256 = "sha256-Zvol6IH+pmdR3l19piONCmGF7jrbnaMxNhpKi+g4S1Y=";
     };
   };
 
