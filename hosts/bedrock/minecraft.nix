@@ -68,9 +68,15 @@ let
     '') mods)}
   '';
 
+  opsKeyPath = ./minecraft-ops.key.nix;
+
   # Ops
   # Attr set[playname = uuid];
-  ops = import ./minecraft-ops.key.nix;
+  ops = if lib.hasPrefix "{" (readFile opsKeyPath)
+        then import opsKeyPath
+        else
+          builtins.trace "${opsKeyPath} is not decrypted. Using default."
+          {};
 
   opsJson = let
     makeOp = name: uuid: {
