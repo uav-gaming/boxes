@@ -10,20 +10,20 @@ defaultuser:
   - show.others
   - hide.self
   - hide.others
-  - fullrender
+  # - fullrender
   - radiusrender
   - updaterender
-  - cancelrender
-  - pause
-  - reload
+  # - cancelrender
+  # - pause
+  # - reload
   - stats
-  - resetstats
+  # - resetstats
   - sendtoweb
-  - purgequeue
-  - ids-for-ip
-  - ips-for-id
-  - add-id-for-ip
-  - del-id-for-ip
+  # - purgequeue
+  # - ids-for-ip
+  # - ips-for-id
+  # - add-id-for-ip
+  # - del-id-for-ip
   - marker.add
   - marker.movehere
   - marker.update
@@ -49,9 +49,9 @@ defaultuser:
   - dmap.worldlist
   - dmap.worldset
   - dmap.worldreset
-  - dmap.mapdelete
-  - dmap.mapset
-  - dmap.mapadd
+  # - dmap.mapdelete
+  # - dmap.mapset
+  # - dmap.mapadd
   - dmap.perspectivelist
   - dmap.shaderlist
   - dmap.lightinglist
@@ -59,12 +59,5 @@ defaultuser:
   - webregister.other
   - webchat
   - playermarkers.showall
-# - world.<world-name>
-# - map.<world-name>.<map-name>
-
-#playername1:
-#  - fullrender
-#  - cancelrender
-#  - radiusrender
-
-
+  # - world.<world-name>
+  # - map.<world-name>.<map-name>
