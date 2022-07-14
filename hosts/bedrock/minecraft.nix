@@ -72,8 +72,8 @@ let
 
   # Ops
   # Attr set[playname = uuid];
-  ops = if config.uav-gaming.hasSecrets then import opsKeyPath
-        else builtins.trace "${opsKeyPath} is not decrypted. Using default." {};
+  ops = if config.uav-gaming.devEnv then import opsKeyPath
+        else {};
 
   opsJson = let
     makeOp = name: uuid: {

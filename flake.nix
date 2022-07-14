@@ -34,46 +34,54 @@
     };
 
     # Launch VM with ./launch-vm.sh
-    nixosConfigurations.bedrock-mini = nixpkgs.lib.makeOverridable nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
-      specialArgs = {
-        inherit inputs;
+    nixosConfigurations = let
+      mkSystem = extraConfig: nixpkgs.lib.makeOverridable nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = {
+          inherit inputs;
+        };
+        modules = [
+          extraConfig
+          ./common
+          ./hosts/bedrock/minecraft.nix
+          nixos-shell.nixosModules.nixos-shell
+          ({ lib, ... }: {
+            networking.hostName = "bedrock-mini";
+            nixpkgs.overlays = [ nix-minecraft.overlay ];
+
+            services.getty.helpLine = lib.mkForce ''
+              Log in as "root" with an empty password.
+
+              Minecraft: Connect to the server at "localhost".
+            '';
+
+            virtualisation = {
+              cores = 4;
+              diskSize = 2048;
+              memorySize = 4096;
+              forwardPorts = [
+                {
+                  from = "host";
+                  proto = "tcp";
+                  host.port = 25565;
+                  guest.port = 25565;
+                }
+                {
+                  from = "host";
+                  proto = "tcp";
+                  host.port = 8123;
+                  guest.port = 8123;
+                }
+              ];
+            };
+          })
+        ];
       };
-      modules = [
-        ./common
-        ./hosts/bedrock/minecraft.nix
-        nixos-shell.nixosModules.nixos-shell
-        ({ lib, ... }: {
-          networking.hostName = "bedrock-mini";
-          nixpkgs.overlays = [ nix-minecraft.overlay ];
-
-          services.getty.helpLine = lib.mkForce ''
-            Log in as "root" with an empty password.
-
-            Minecraft: Connect to the server at "localhost".
-          '';
-
-          virtualisation = {
-            cores = 4;
-            diskSize = 2048;
-            memorySize = 4096;
-            forwardPorts = [
-              {
-                from = "host";
-                proto = "tcp";
-                host.port = 25565;
-                guest.port = 25565;
-              }
-              {
-                from = "host";
-                proto = "tcp";
-                host.port = 8123;
-                guest.port = 8123;
-              }
-            ];
-          };
-        })
-      ];
+    in {
+      bedrock-mini = mkSystem {};
+      bedrock-mini-dev = mkSystem {
+        uav-gaming.devEnv = false;
+      };
     };
   } // utils.lib.eachDefaultSystem (system: let
     pkgs = nixpkgs.legacyPackages.${system};
