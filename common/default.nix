@@ -6,6 +6,7 @@ let
 in {
   imports = [
     ./ssh-keys
+    ./secrets.nix
     inputs.impermanence.nixosModule
   ];
 

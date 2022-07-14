@@ -72,11 +72,8 @@ let
 
   # Ops
   # Attr set[playname = uuid];
-  ops = if lib.hasPrefix "{" (readFile opsKeyPath)
-        then import opsKeyPath
-        else
-          builtins.trace "${opsKeyPath} is not decrypted. Using default."
-          {};
+  ops = if config.uav-gaming.hasSecrets then import opsKeyPath
+        else builtins.trace "${opsKeyPath} is not decrypted. Using default." {};
 
   opsJson = let
     makeOp = name: uuid: {
