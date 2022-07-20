@@ -7,12 +7,16 @@ Download [Tailscale](https://tailscale.com), sign in with your favorite method, 
 ## Minecraft
 
 - Version: Fabric 1.19
-- Server Address: `100.70.137.13`
+- Server Address: `100.70.137.13`(requires tailscale)
+    - Dynmap Address: http://100.70.137.13:8123/
+    - Seed: `7846673820795225185`
 - Required Mods:
+    - [Fabric API](https://modrinth.com/mod/fabric-api)
     - [CC: Restitched](https://modrinth.com/mod/cc-restitched)
-    - [Applied Energistics 2](https://modrinth.com/mod/ae2)
+    - [Applied Energistics 2(AE2)](https://modrinth.com/mod/ae2)
 - Recommended Mods:
     - [JourneyMap](https://modrinth.com/mod/journeymap)
+    - [Roughly Enough Items (REI)](https://modrinth.com/mod/roughly-enough-items)
 
 ### Operations
 
@@ -34,7 +38,7 @@ The first start can take a while. Use `journalctl -fu minecraft-server` to watch
 
 ### Colmena
 
-To build the nodes locally, you need `git-crypt` and the key to decrypt the credentials stored in the repo:
+To build the production nodes locally, you need `git-crypt` and the key to decrypt the credentials stored in the repo:
 
 ```bash
 git crypt unlock <key file you received>
