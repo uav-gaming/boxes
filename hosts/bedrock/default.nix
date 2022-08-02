@@ -27,6 +27,9 @@
     gateway = [ "172.20.16.81" ];
   };
 
+  # console access is trusted
+  services.getty.autologinUser = "root";
+
   services.tailscale.enable = true;
 }
 
