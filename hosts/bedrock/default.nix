@@ -18,13 +18,11 @@
   boot.loader.efi.canTouchEfiVariables = true;
   boot.zfs.devNodes = "/dev/disk/by-path";
 
-  systemd.network.networks.enp1s0 = {
-    name = "enp1s0";
+  systemd.network.networks.enp6s18 = {
+    name = "enp6s18";
     networkConfig = {
       DHCP = "yes";
     };
-    address = [ "172.20.16.83/28" ];
-    gateway = [ "172.20.16.81" ];
   };
 
   # console access is trusted
