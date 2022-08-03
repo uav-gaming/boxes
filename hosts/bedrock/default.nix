@@ -29,5 +29,6 @@
   services.getty.autologinUser = "root";
 
   services.tailscale.enable = true;
+  services.qemuGuest.enable = true;
 }
 
