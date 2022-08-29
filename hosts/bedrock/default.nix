@@ -34,10 +34,14 @@
   services.tailscale.enable = true;
   services.qemuGuest.enable = true;
 
-  security.acme.certs."uav-gaming.eu.org" = {
-    dnsProvider = "cloudflare";
-    extraDomainNames = [ "*.uav-gaming.eu.org" ];
-    credentialsFile = "/var/src/secrets/dns01.env";
+  security.acme = {
+    acceptTerms = true;
+    defaults.email = "uav@tjhu.dev";
+    certs."uav-gaming.eu.org" = {
+      dnsProvider = "cloudflare";
+      extraDomainNames = [ "*.uav-gaming.eu.org" ];
+      credentialsFile = "/var/src/secrets/dns01.env";
+    };
   };
 }
 
