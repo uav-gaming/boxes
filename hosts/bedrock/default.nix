@@ -17,6 +17,9 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.zfs.devNodes = "/dev/disk/by-path";
+  boot.kernelParams = [
+    "console=ttyS0"
+  ];
 
   systemd.network.networks.enp6s18 = {
     name = "enp6s18";
