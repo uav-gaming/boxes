@@ -5,7 +5,7 @@ with builtins;
 let
   # Java Edition
   javaPort = 25565;
-  package = pkgs.fabricServers.fabric-1_19;
+  package = pkgs.fabricServers.fabric-1_19_2;
 
   # Bedrock/Pocket (GeyserMC)
   bedrockPort = 19132;
