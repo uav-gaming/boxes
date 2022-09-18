@@ -18,8 +18,8 @@ let
     # Client-side mods
     # Item storage and transportation
     ae2 = pkgs.fetchurl {
-      url = "https://github.com/AppliedEnergistics/Applied-Energistics-2/releases/download/fabric%2Fv12.0.1-alpha/appliedenergistics2-12.0.1-alpha.jar";
-      sha256 = "sha256-jaQ3S2Ya2ek++dGvwu/mDURzGnHfOt31UOFrKW9q2GQ=";
+      url = "https://github.com/AppliedEnergistics/Applied-Energistics-2/releases/download/fabric%2Fv12.5.0-beta/appliedenergistics2-12.5.0-beta.jar";
+      sha256 = "sha256-tFs4O9OhnZnHY5l/gyDFnDueDWw651dFDLarDaKA2uE=";
     };
     # Programmable robots
     cc-restitched = pkgs.fetchurl {
