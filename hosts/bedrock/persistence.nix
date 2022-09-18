@@ -10,6 +10,7 @@
       "/var/lib/tailscale"
       "/etc/ssh"
     ];
+    files = [ "/etc/passwd" ];
   };
 
   system.activationScripts.createPersistFs = {
