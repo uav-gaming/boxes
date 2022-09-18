@@ -1,5 +1,8 @@
 # UAV Gaming
 
+[![Build](https://github.com/uav-gaming/boxes/actions/workflows/build.yml/badge.svg)](https://github.com/uav-gaming/boxes/actions/workflows/build.yml)
+[![Deploy](https://github.com/uav-gaming/boxes/actions/workflows/deploy.yml/badge.svg)](https://github.com/uav-gaming/boxes/actions/workflows/deploy.yml)
+
 ## Connecting to the Server
 
 Download [Tailscale](https://tailscale.com), sign in with your favorite method, then accept the invite on Discord.
