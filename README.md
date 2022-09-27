@@ -9,7 +9,7 @@ Download [Tailscale](https://tailscale.com), sign in with your favorite method, 
 
 ## Minecraft
 
-- Version: Fabric 1.19
+- Version: 1.19.2
 - Server Address: `100.70.137.13`(requires tailscale)
     - Dynmap Address: http://100.70.137.13:8123/
     - Seed: `7846673820795225185`
