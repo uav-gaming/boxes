@@ -28,31 +28,31 @@ let
     };
     # Recipes
     rei = pkgs.fetchurl {
-      url = "https://cdn.modrinth.com/data/nfn13YXA/versions/9.1.511+fabric/RoughlyEnoughItems-9.1.511.jar";
-      sha256 = "sha256-fKu0D5xdCCzYsqU61QZ5BPqw5ctID47eMOOXr1Y2mXg=";
+      url = "https://cdn.modrinth.com/data/nfn13YXA/versions/C8N1KDOt/RoughlyEnoughItems-9.1.546.jar";
+      sha256 = "sha256-kqwWVz4cSwgubr/MK5zha4wJpgkgKmoKViY/FUdcXsY=";
     };
 
     # Server-only mods
     dynmap = pkgs.fetchurl {
-      url = "https://dynmap.us/releases/Dynmap-3.4-beta-4-fabric-1.19.jar";
-      sha256 = "sha256-gy0t2wQp5LEKGV8aoIwo7dzOYQwj5suko0UPGmF5VrY=";
+      url = "https://dynmap.us/releases/Dynmap-3.4-fabric-1.19.1.jar";
+      sha256 = "sha256-N4y0cevuQvN6tCuS/3pyMwn2HqGnj+dK5f4lorK69JI=";
     };
 
     # APIs
     # Depended by all mods.
     fabric-api = pkgs.fetchurl {
-      url = "https://github.com/FabricMC/fabric/releases/download/0.57.0%2B1.19/fabric-api-0.57.0+1.19.jar";
-      sha256 = "sha256-kqEYvI55QvK8+6NJZSoF0jqiWWwTMfUpB0SV8c5PZIM=";
+      url = "https://github.com/FabricMC/fabric/releases/download/0.62.0%2B1.19.2/fabric-api-0.62.0+1.19.2.jar";
+      sha256 = "sha256-RXp1zYxFJ2tYF7dsGVEH3s0jnmQVEP7IjlOtkJGOolc=";
     };
     # Depended by REI.
     cloth-config = pkgs.fetchurl {
-      url = "https://cdn.modrinth.com/data/9s6osm5g/versions/7.0.73+fabric/cloth-config-7.0.73-fabric.jar";
-      sha256 = "sha256-zUPlyMYWXOb01mRIpCGoUvvR0g2M1WzghtamMVwlZJs=";
+      url = "https://cdn.modrinth.com/data/9s6osm5g/versions/EXrxCjl6/cloth-config-8.2.88-fabric.jar";
+      sha256 = "sha256-Za+XancnMxaczbY0EFgAMFhAMv0pevFr7taoxkPq0AM=";
     };
     # Depended by REI.
     architectury = pkgs.fetchurl {
-      url = "https://cdn.modrinth.com/data/lhGA9TYQ/versions/5.9.30+fabric/architectury-5.9.30-fabric.jar";
-      sha256 = "sha256-Zvol6IH+pmdR3l19piONCmGF7jrbnaMxNhpKi+g4S1Y=";
+      url = "https://cdn.modrinth.com/data/lhGA9TYQ/versions/xjWpId6m/architectury-6.2.46-fabric.jar";
+      sha256 = "sha256-aUijRNgRmZdNTDJBoZKaxE2FqEnTcSr/jTqx1RU6oAI=";
     };
   };
 
