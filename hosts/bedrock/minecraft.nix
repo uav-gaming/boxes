@@ -26,11 +26,6 @@ let
       url = "https://github.com/cc-tweaked/cc-restitched/releases/download/v1.19-1.101.0-ccr/cc-restitched-1.101.0.jar";
       sha256 = "sha256-7g5xfUjwOz+U8cW6lcVfPHGjnEWa3n+6t9l6Og5I4Ro=";
     };
-    # In-game map
-    journeymap = pkgs.fetchurl {
-      url = "https://cdn.modrinth.com/data/lfHFW1mp/versions/1.19-5.8.5rc2-fabric/journeymap-1.19-5.8.5rc2-fabric.jar";
-      sha256 = "sha256-Fwed1BDIiB9O4L4iCyhDrXThGQyLbf7THakEiYasgHo=";
-    };
     # Recipes
     rei = pkgs.fetchurl {
       url = "https://cdn.modrinth.com/data/nfn13YXA/versions/9.1.511+fabric/RoughlyEnoughItems-9.1.511.jar";
