@@ -28,6 +28,10 @@
     };
   };
 
+  environment.systemPackages = with pkgs; [
+    libwebp
+  ];
+
   # console access is trusted
   services.getty.autologinUser = "root";
 
