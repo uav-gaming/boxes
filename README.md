@@ -14,12 +14,16 @@ Download [Tailscale](https://tailscale.com), sign in with your favorite method, 
     - Dynmap Address: http://100.70.137.13:8123/
     - Seed: `7846673820795225185`
 - Required Mods:
-    - [Fabric API](https://modrinth.com/mod/fabric-api)
-    - [CC: Restitched](https://modrinth.com/mod/cc-restitched)
-    - [Applied Energistics 2(AE2)](https://modrinth.com/mod/ae2)
+    - [Fabric API](https://modrinth.com/mod/fabric-api): v1.12.6
+    - [CC: Restitched](https://modrinth.com/mod/cc-restitched): v1.101.2
+    - [Applied Energistics 2(AE2)](https://modrinth.com/mod/ae2): v12.5.0-beta
 - Recommended Mods:
     - [JourneyMap](https://modrinth.com/mod/journeymap)
     - [Roughly Enough Items (REI)](https://modrinth.com/mod/roughly-enough-items)
+        - Cloth Config API
+        - Architectury API
+    - WTHIT
+        - bad packets
 
 ### Operations
 
