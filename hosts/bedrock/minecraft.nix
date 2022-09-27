@@ -23,8 +23,8 @@ let
     };
     # Programmable robots
     cc-restitched = pkgs.fetchurl {
-      url = "https://github.com/cc-tweaked/cc-restitched/releases/download/v1.19-1.101.0-ccr/cc-restitched-1.101.0.jar";
-      sha256 = "sha256-7g5xfUjwOz+U8cW6lcVfPHGjnEWa3n+6t9l6Og5I4Ro=";
+      url = "https://cdn.modrinth.com/data/eldBwa5V/versions/1.101.2+1.19.1/cc-restitched-1.101.2.jar";
+      sha256 = "sha256-fzts+Efvux1tlBRB/ntuZViXUuLLKYx1kAlvUwPITa8=";
     };
     # Recipes
     rei = pkgs.fetchurl {
