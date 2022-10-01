@@ -16,14 +16,18 @@ Download [Tailscale](https://tailscale.com), sign in with your favorite method, 
 - Required Mods:
     - [Fabric API](https://modrinth.com/mod/fabric-api): v1.12.6
     - [CC: Restitched](https://modrinth.com/mod/cc-restitched): v1.101.2
-    - [Applied Energistics 2(AE2)](https://modrinth.com/mod/ae2): v12.5.0-beta
-- Recommended Mods:
+    - [Applied Energistics 2(AE2)](https://modrinth.com/mod/ae2): v12.7.0
+- Recommended Client-Only Mods:
     - [JourneyMap](https://modrinth.com/mod/journeymap)
     - [Roughly Enough Items (REI)](https://modrinth.com/mod/roughly-enough-items)
         - Cloth Config API
         - Architectury API
-    - WTHIT
+    - WTHIT(show block name)
         - bad packets
+    - MiniHUD(show chunk and structure info)
+        - MaLiLib
+    - Litematica(create and display schema)
+        - MaLiLib
 
 ### Operations
 
